@@ -1,8 +1,8 @@
 const categoryColorMap = new Map();
 
-categoryColorMap.set("Product Reviews", "orange");
-categoryColorMap.set("Travel Guides", "yellow");
-categoryColorMap.set("Opinions", "green");
+categoryColorMap.set("Technology", "orange");
+categoryColorMap.set("Life", "yellow");
+categoryColorMap.set("LeetCode", "green");
 
 const getCategoryColor = (category: string) => {
   return categoryColorMap.get(category);
