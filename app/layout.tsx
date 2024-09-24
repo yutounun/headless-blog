@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/styles/styles.sass";
 import { Lato, Open_Sans } from "next/font/google";
-import Header from "@/app/components/Header";
+import Header from "@/app/components/Header/Header";
 import Footer from "@/app/components/Footer";
 
 // heading font
