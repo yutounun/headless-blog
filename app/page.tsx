@@ -37,7 +37,7 @@ export default async function Home() {
               label={article.category.name}
               imgAlt={article.title}
               imgSrc={article.eyecatch.url}
-              className="mb-30"
+              className="mb-30 m-mw-100"
             />
           </div>
         ))}
