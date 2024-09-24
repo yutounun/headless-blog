@@ -11,15 +11,16 @@ const Card = (props: {
   href: string;
   btnIcon?: string;
   btnLabel?: string;
-  imgSrc: string;
+  imgSrc?: string;
   imgAlt: string;
 }) => {
   return (
     <div className={`${styles.card_wrap} ${props.className || ""}`}>
       <div className={styles.card}>
         <div className={styles.card_imageWrap}>
+          {props.imgAlt}
           <div className={styles.card_image}>
-            <Image src={props.imgSrc} alt={props.imgAlt} fill />
+            <Image src={props.imgSrc || ""} alt={props.imgAlt} fill />
           </div>
         </div>
         <div className={styles.card_content}>

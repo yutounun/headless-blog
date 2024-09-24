@@ -1,17 +1,8 @@
-import config from "@/app/config";
+import { client } from "./client";
 
-const fetchBlogs = async () => {
-  const reqOptions = {
-    headers: {
-      Authorization: `Bearer ${process.env.API_TOKEN}`,
-    },
-    endpoint: "blogs",
-  };
-  const res = await fetch(`${config.api}/blogs`, reqOptions);
-  const rtn = await res.json();
-  console.log("🚀 ~ fetchBlogs ~ rtn:", rtn);
-
-  return rtn;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const fetchArticles = async (queries?: any, contentId?: string) => {
+  return await client.get({ endpoint: "blogs", queries, contentId });
 };
 
-export default fetchBlogs;
+export default fetchArticles;

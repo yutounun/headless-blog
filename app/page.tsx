@@ -1,54 +1,42 @@
 import Card from "@/app/components/card/Card";
 import { IconTypes } from "./components/button/Button";
-// import fetchBlogs from "./helpers/fetch-articles";
-import config from "@/app/config";
-import { client } from "@/app/helpers/client";
-
-type ArticleType = {
-  Title: string;
-  Summary: string;
-  Slug: string;
-  Category: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  FeaturedImage: any;
-};
+import { ArticleType } from "./type";
+import fetchArticles from "./helpers/fetch-articles";
 
 export default async function Home() {
-  // const fetchfeaturedArticles = await fetchBlogs();
-  // console.log("🚀 ~ Home ~ fetchfeaturedArticles:", fetchfeaturedArticles);
-  // const articles = await fetchBlogs();
-  const data = await client.get({ endpoint: "blog" });
-  const fetchfeaturedArticles = data;
-  const articles = data;
+  const articles = await fetchArticles();
+  const filteredArticles = await fetchArticles({
+    filters: "isFavorite[equals]true",
+  });
 
   return (
     <div className="container">
-      {fetchfeaturedArticles.contents?.map((article: ArticleType) => (
+      {filteredArticles.contents?.map((filteredArticle: ArticleType) => (
         <Card
-          key={article.Title}
-          title={article.Title}
+          key={filteredArticle.title}
+          title={filteredArticle.title}
           btnLabel="Read More"
           btnIcon={IconTypes.ARROW_ROGHT}
-          summary={article.Summary}
-          href={`/${article.Slug}`}
-          label={article.Category}
-          imgSrc={`${config.api}${article.FeaturedImage.url}`}
-          imgAlt={article.Title}
+          summary={filteredArticle.summary}
+          href={`/${filteredArticle.id}`}
+          label={filteredArticle.category.name}
+          imgAlt={filteredArticle.title}
+          imgSrc={filteredArticle.eyecatch.url}
           className="mb-30"
         />
       ))}
       <div className="row">
         {articles.contents?.map((article: ArticleType) => (
-          <div className="col col_4 m-mw-100" key={article.Title}>
+          <div key={article.title} className="col col_4">
             <Card
-              title={article.Title}
+              title={article.title}
               btnLabel="Read More"
               btnIcon={IconTypes.ARROW_ROGHT}
-              summary={article.Summary}
-              href={`/${article.Slug}`}
-              label={article.Category}
-              imgSrc={`${config.api}${article.FeaturedImage.url}`}
-              imgAlt={article.Title}
+              summary={article.summary}
+              href={`/${article.id}`}
+              label={article.category.name}
+              imgAlt={article.title}
+              imgSrc={article.eyecatch.url}
               className="mb-30"
             />
           </div>
