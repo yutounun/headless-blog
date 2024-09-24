@@ -18,7 +18,6 @@ const Card = (props: {
     <div className={`${styles.card_wrap} ${props.className || ""}`}>
       <div className={styles.card}>
         <div className={styles.card_imageWrap}>
-          {props.imgAlt}
           <div className={styles.card_image}>
             <Image src={props.imgSrc || ""} alt={props.imgAlt} fill />
           </div>
