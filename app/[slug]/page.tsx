@@ -33,7 +33,7 @@ const BlogDetail = async (props: any) => {
               width="1280"
               height="387"
             />
-            <div>
+            <div className={styles.codeBlockContainer}>
               <div
                 className="col col_9"
                 dangerouslySetInnerHTML={{ __html: article.content }}

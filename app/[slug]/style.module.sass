@@ -1,3 +1,24 @@
 .featuredImage
   box-shadow: 6px 7px 21px 0 rgba(0, 0, 0, 0.07)
   border-radius: 10px
+
+/* Codeblock のスタイル調整 */
+.codeBlockContainer
+  pre, code
+    overflow-x: auto
+  
+  a
+    overflow-wrap: break-word  // はみ出しを防ぐための設定
+    max-width: 100%  // 親要素の幅に収める
+  
+  blockquote
+    border-left: 0.3rem solid rgba(0, 0, 0, 0.1)
+    padding-left: 1rem
+
+  h2
+    margin-bottom: 0.5rem
+
+  @media screen and (max-width: 700px)
+    blockquote
+      margin: 0
+    
