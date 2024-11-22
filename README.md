@@ -1,6 +1,7 @@
 # Personal Blog using MicroCMS and Next.js 14 (SSG)
 
 This README provides an overview of how to set up and run a personal blog using [MicroCMS](https://microcms.io/), a headless CMS, and [Next.js 14](https://nextjs.org/), leveraging Static Site Generation (SSG). The blog is built using React components, allowing for a dynamic and responsive user interface.
+![Uploading Developed to learn Next.js 14 and fulfill my own need for a tool to find work-friendly cafes in Tokyo. (4).jpg…]()
 
 ## Technologies Used
 - **MicroCMS**: Headless CMS to manage content easily.
